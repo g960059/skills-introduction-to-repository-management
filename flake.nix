@@ -9,7 +9,15 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        lib = nixpkgs.lib;
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+              "mongodb"
+            ];
+          };
+        };
         python = pkgs.python3.withPackages (ps: with ps; [
           fastapi
           uvicorn
