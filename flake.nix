@@ -19,7 +19,10 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ python ];
+          packages = [
+            python
+            pkgs.mongodb
+          ];
         };
       });
 }
