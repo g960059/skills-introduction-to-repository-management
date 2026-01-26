@@ -1,0 +1,15 @@
+.git
+.data
+.devcontainer
+.envrc
+.vscode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.DS_Store
+flake.lock
+flake.nix

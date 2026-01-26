@@ -9,19 +9,43 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 ## Getting Started
 
+### Docker (recommended)
+
+1. Build and start the app + MongoDB:
+
+   ```
+   docker compose up --build
+   ```
+
+2. Open your browser and go to:
+   - API documentation: http://localhost:8000/docs
+   - Alternative documentation: http://localhost:8000/redoc
+
+3. Stop the services:
+
+   ```
+   docker compose down
+   ```
+
+### Local Python
+
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 
-2. Run the application:
+2. Make sure MongoDB is running locally (default: `mongodb://localhost:27017/`).
+
+   If you want a different host, set `MONGODB_URI`.
+
+3. Run the application:
 
    ```
    python app.py
    ```
 
-3. Open your browser and go to:
+4. Open your browser and go to:
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
 

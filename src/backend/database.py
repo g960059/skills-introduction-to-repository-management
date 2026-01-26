@@ -2,11 +2,13 @@
 MongoDB database configuration and setup for Mergington High School API
 """
 
+import os
 from pymongo import MongoClient
 from argon2 import PasswordHasher, exceptions as argon2_exceptions
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+mongo_uri = os.getenv("MONGODB_URI", "mongodb://localhost:27017/")
+client = MongoClient(mongo_uri)
 db = client['mergington_high']
 activities_collection = db['activities']
 teachers_collection = db['teachers']
@@ -202,4 +204,3 @@ initial_teachers = [
         "role": "admin"
     }
 ]
-
